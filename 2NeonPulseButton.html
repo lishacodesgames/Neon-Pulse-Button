@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Pulse Button</title>
+    <link rel="icon" href="neonbutton.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+        }
+
+        div {
+            text-align: center;
+        }
+
+        button {
+            padding: 1em 2em; /* em is relative to element's font-size value so 2em = 2*OWN ELEMENT's font size. (If not given, it inherits from parent). NOTE: for em in font-size, it will be 2*parent's font size */
+            font-size: 1.5rem;
+            color: white;
+            background: transparent;
+            border: 2px solid #0ff;
+            border-radius: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #0ff,
+                        0 0 20px #0ff,
+                        0 0 40px #0ff; /* layering shadows makes the glow have more depth */
+            animation: pulse 2s infinite; /* animation-name duration iteration-count */
+            transform: scale(1); /* because we're gonna change it, so we need an initial value */
+            transition: background 0.3s ease, transform 0.18s ease;
+        }
+
+        button:hover {
+            background-color: #0ff;
+            color: black;
+            box-shadow: 0 0 20px #0ff,
+                        0 0 40px #0ff,
+                        0 0 60px #0ff;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 10px #0ff,
+                            0 0 20px #0ff,
+                            0 0 40px #0ff;
+            }
+            50% {
+                box-shadow: 0 0 20px #0ff,
+                            0 0 40px #0ff,
+                            0 0 60px #0ff;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div><button>NEON</button></div>
+</body>
+</html>
